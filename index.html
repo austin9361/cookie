@@ -7,12 +7,17 @@
 </head>
 <body>
 
-    <div id="game">
-        <h1>Loading Cookie Clicker...</h1>
-        <p>If the page remains blank, check your browser developer console (Ctrl + Shift + J).</p>
-    </div>
+    <!-- Fix: Providing the core layout tags Cookie Clicker expects to find -->
+    <div id="game"></div>
+    <div id="comments"></div>
+    <div id="cookies"></div>
+    <div id="bakeryName"></div>
+    <div id="buildings"></div>
+    <div id="sectionLeft"></div>
+    <div id="sectionMiddle"></div>
+    <div id="sectionRight"></div>
 
-    <!-- Fix: Injecting the LOCAL flag required by main.js -->
+    <!-- Fix: Injecting global configuration variables -->
     <script>
         var VERSION = 2.052; 
         var BETA = 0;        
@@ -20,8 +25,6 @@
         var Game = {};       
         var SAVESUFFIX = ''; 
         var AMENU = 0;       
-        
-        // Fixes the "LOCAL is not defined" crash
         var LOCAL = 0;       
 
         // Safe building blocks for minigames
