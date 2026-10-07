@@ -3,47 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Clicker Mod</title>
+    <title>Cookie Clicker Sandbox Edition</title>
     
-    <!-- Fix: Forcing all engine setup definitions to exist BEFORE any files touch the engine -->
-    <script>
-        var VERSION = 2.052; 
-        var BETA = 0;        
-        var App = {};        
-        var Game = {};       
-        var SAVESUFFIX = ''; 
-        var AMENU = 0;       
-        var LOCAL = 0;       
-
-        // Giving minigames an explicitly drawn canvas zone safely
-        Game.Objects = {
-            'Farm': {},
-            'Wizard tower': {},
-            'Bank': {},
-            'Temple': {}
-        };
-
-        // Standard document locator utility used by Cookie Clicker
-        function l(id) { 
-            return document.getElementById(id); 
-        }
-    </script>
+    <!-- Loading official styling from the game network to restore graphics -->
+    <link rel="stylesheet" href="https://dashnet.org">
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
-<body>
+<body class="title">
 
-    <!-- Structuring layout divisions so innerHTML queries have a guaranteed landing target -->
-    <div id="game">
-        <div id="langSelect"></div>
+    <div id="wrapper">
+        <div id="game">
+            <div id="javascriptError" style="padding:40px;color:#fff;font-size:16px;">
+                Your modded game engine environment is loading... 
+                If the screen stays blank for more than 10 seconds, a mod script mismatch is present.
+            </div>
+            
+            <div id="background"></div>
+            <div id="comments" class="commentsHolder"></div>
+            <div id="menu"></div>
+            <div id="sectionLeft" class="inset"></div>
+            <div id="sectionMiddle" class="inset"></div>
+            <div id="sectionRight" class="inset"></div>
+            <div id="tooltipAnchor"></div>
+        </div>
     </div>
-    <div id="comments"></div>
-    <div id="cookies"></div>
-    <div id="bakeryName"></div>
-    <div id="buildings"></div>
-    <div id="sectionLeft"></div>
-    <div id="sectionMiddle"></div>
-    <div id="sectionRight"></div>
 
-    <!-- Core Game Scripts loaded in sequential synchronization order -->
+    <!-- Pre-configuring standard game workspace properties -->
+    <script>
+        window.DataDir = 'https://dashnet.org';
+        window.ajax = function(url, callback) {
+            fetch(url).then(res => res.text()).then(text => callback(text));
+        };
+    </script>
+
+    <!-- Core Game Scripts Sequential Stack -->
     <script src="main.js"></script>
     <script src="minigamegarden.js"></script>
     <script src="minigameGrimoire.js"></script>
