@@ -12,16 +12,17 @@
         <p>If the page remains blank, check your browser developer console (Ctrl + Shift + J).</p>
     </div>
 
-    <!-- Fix: Injecting save engine fallback variables required by main.js -->
+    <!-- Fix: Injecting the LOCAL flag required by main.js -->
     <script>
         var VERSION = 2.052; 
         var BETA = 0;        
         var App = {};        
         var Game = {};       
-        
-        // Fixes the "SAVESUFFIX is not defined" crash
         var SAVESUFFIX = ''; 
         var AMENU = 0;       
+        
+        // Fixes the "LOCAL is not defined" crash
+        var LOCAL = 0;       
 
         // Safe building blocks for minigames
         Game.Objects = {
