@@ -12,14 +12,18 @@
         <p>If the page remains blank, check your browser developer console (Ctrl + Shift + J).</p>
     </div>
 
-    <!-- Fix: Injecting all global variables required by main.js and minigames -->
+    <!-- Fix: Injecting save engine fallback variables required by main.js -->
     <script>
         var VERSION = 2.052; 
-        var BETA = 0;        // Fixes the "BETA is not defined" crash
-        var App = {};        // Prevents downstream app utility crashes
-        var Game = {};       // Sets up the core game engine container
+        var BETA = 0;        
+        var App = {};        
+        var Game = {};       
         
-        // This gives the minigames a safe place to read building properties
+        // Fixes the "SAVESUFFIX is not defined" crash
+        var SAVESUFFIX = ''; 
+        var AMENU = 0;       
+
+        // Safe building blocks for minigames
         Game.Objects = {
             'Farm': {},
             'Wizard tower': {},
