@@ -8,7 +8,10 @@
 <body>
 
     <!-- Fix: Providing the core layout tags Cookie Clicker expects to find -->
-    <div id="game"></div>
+    <div id="game">
+        <div id="langSelect"></div> <!-- Fixes the showLangSelect innerHTML crash -->
+    </div>
+    
     <div id="comments"></div>
     <div id="cookies"></div>
     <div id="bakeryName"></div>
@@ -34,6 +37,11 @@
             'Bank': {},
             'Temple': {}
         };
+
+        // Utility helper function: Cookie Clicker uses l() as a shortcut to find layout IDs
+        function l(id) { 
+            return document.getElementById(id); 
+        }
     </script>
 
     <!-- Core Game Scripts -->
