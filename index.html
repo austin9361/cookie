@@ -12,7 +12,13 @@
         <p>If the page remains blank, check your browser developer console (Ctrl + Shift + J).</p>
     </div>
 
-    <!-- Core Game Scripts (Capitalization matches your files perfectly) -->
+    <!-- Fix: Injecting the core setup data Cookie Clicker expects before running main.js -->
+    <script>
+        var VERSION = 2.052; // Sets a base game version identifier
+        var Game = {};       // Initializes the base Game object container
+    </script>
+
+    <!-- Core Game Scripts -->
     <script src="main.js"></script>
     <script src="minigamegarden.js"></script>
     <script src="minigameGrimoire.js"></script>
